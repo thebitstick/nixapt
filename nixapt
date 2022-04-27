@@ -1,0 +1,32 @@
+#!/usr/bin/env fish
+
+switch $argv[1]
+	case update
+		nix-channel --update nixpkgs
+	case upgrade
+		nix-env --upgrade '*'
+	case list
+		nix-env --query $argv[2..-1]
+	case install
+		if test -z $argv[2]
+			echo "Package(s) name required"
+			exit 1
+		else
+			nix-env --install --attr nixpkgs.{$argv[2..-1]}
+		end
+	case uninstall
+		if test -z $argv[2]
+			echo "Package(s) name required"
+			exit 1
+		else
+			nix-env --uninstall $argv[2..-1]
+		end
+	case '' '--help' '-h'
+		echo "OVERVIEW: Simple wrapper for apt-style commands with Nix on macOS"
+		echo
+		echo "USAGE: nixapt [update | upgrade | install PACKAGES...| uninstall PACKAGES...]"
+	case '-v' '--version'
+		echo "nixapt 0.0.1"
+	case '*'
+		echo "Unknown command"
+end
