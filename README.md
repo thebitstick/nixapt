@@ -9,7 +9,7 @@ Simple Wrapper to Nix for Apt-style Commands on non-NixOS Systems
 `$ nixapt install fish htop`  
 to install packages  
 
-`$ nixapt uninstall htop`  
+`$ nixapt remove htop`  
 to remove packages  
 
 `$ nixapt update; and nixapt upgrade`  
@@ -17,3 +17,6 @@ to update channels and upgrade packages
 
 `$ nixapt list`  
 to list installed packages
+
+`$ nixapt search zsh`  
+to search for available packages
