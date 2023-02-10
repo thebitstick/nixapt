@@ -2,8 +2,8 @@
 Simple Wrapper to Nix for Apt-style Commands on non-NixOS Systems
 
 ## Requirements
-- fish
-- nix
+- `fish` OR `nu`
+- `nix`
 
 ## Usage
 `$ nixapt install fish htop`  

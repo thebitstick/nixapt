@@ -33,11 +33,11 @@ switch $argv[1]
 			end
 		end
 	case list
-		nix-env --query $argv[2..-1]
+		nix-env --query $argv[2..-1] --description
 	case '' '--help' '-h'
 		echo "OVERVIEW: Simple wrapper for apt-style commands with Nix on macOS"
 		echo
-		echo "USAGE: nixapt [update | upgrade | install PACKAGES...| uninstall PACKAGES...]"
+		echo "USAGE: nixapt [ update | upgrade | install PACKAGES... | remove PACKAGES... | autoremove | search | list ]"
 	case '-v' '--version'
 		echo "nixapt 0.0.1"
 	case '*'
